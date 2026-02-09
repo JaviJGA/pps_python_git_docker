@@ -1,7 +1,6 @@
 from bayeta import frotar
 
-frotar()
-
-print("Hola mundo")
+frase = frotar()
+print(frase)
 #hola   
 #holala
