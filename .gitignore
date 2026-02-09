@@ -157,6 +157,9 @@ ENV/
 env.bak/
 venv.bak/
 pyentorno/
+pyentorno/*
+.pyentorno/
+.pyentorno/*
 
 # Spyder project settings
 .spyderproject
