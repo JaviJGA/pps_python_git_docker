@@ -1,0 +1,14 @@
+services:
+  mi-mongo:
+    image: mongo:latest
+    container_name: mi-mongo
+    ports:
+      - "27017:27017"
+
+  bayeta-app:
+    build: .
+    container_name: bayeta-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mi-mongo
