@@ -4,6 +4,9 @@ services:
     container_name: mi-mongo
     ports:
       - "27017:27017"
+    # Añadimos el volumen apuntando a la ruta interna de Mongo
+    volumes:
+      - mongo_data:/data/db
 
   bayeta-app:
     build: .
@@ -12,3 +15,7 @@ services:
       - "5000:5000"
     depends_on:
       - mi-mongo
+
+# Declaramos el volumen al final para que Docker lo cree y gestione
+volumes:
+  mongo_data:
