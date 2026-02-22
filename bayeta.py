@@ -1,12 +1,15 @@
-from mongo_service import consultar, inicializar
+# Actualizamos el import para traer también 'insertar'
+from mongo_service import consultar, inicializar, insertar
 
-# Intentamos inicializar la DB al arrancar el módulo
 try:
     inicializar()
 except Exception as e:
-    print(f"Aviso: No se pudo conectar a Mongo al inicializar (ignorar si es entorno de build): {e}")
+    print(f"Aviso: No se pudo conectar a Mongo al inicializar: {e}")
 
 def frotar(n_frases: int = 1):
-    # Sustituimos el bucle anterior por la consulta a Mongo
     lista = consultar(n_frases)
     return lista
+
+# Nueva función
+def insertar_frases(frases: list):
+    insertar(frases)
