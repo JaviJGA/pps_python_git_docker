@@ -32,3 +32,11 @@ def consultar(n_frases: int):
     
     # Extraemos solo el texto para devolver la lista de strings
     return [f['frase'] for f in frases_aleatorias]
+def insertar(frases_nuevas: list):
+    """Inserta una lista de frases nuevas en la base de datos"""
+    coleccion = instanciar()
+    if frases_nuevas:
+        # Convertimos la lista de strings al formato {"frase": "texto"}
+        datos_para_insertar = [{"frase": f} for f in frases_nuevas]
+        coleccion.insert_many(datos_para_insertar)
+        print(f"Se han insertado {len(frases_nuevas)} frases nuevas.")
